@@ -11,8 +11,9 @@ def bot():
     resp = MessagingResponse()
     msg = resp.message()
     responded = False
+
     if "quote" in incoming_msg:
-        # Now to return a quote
+        # To return a quote
         r = requests.get("https://api.quotable.io/random")
         if r.status_code == 200:
             data = r.json()
@@ -21,12 +22,25 @@ def bot():
             quote = "I could not retrieve a quote at this time, sorry!"
         msg.body(quote)
         responded = True
+
     if "cat" in incoming_msg:
-        # return a cat pics
+        # To return a cat pics
         msg.media("https://cataas.com/cat")
         responded = True
+
+    if "cat fact" or "fact" in incoming_msg:
+        # To return a useless fact
+        r = requests.get("https://meowfacts.herokuapp.com")
+        if r.status_code == 200:
+            data = r.json()
+            fact = f'{data["data"]}'
+        else:
+            fact = "I could not retrieve a fact at this time, sorry!"
+        msg.body(fact)
+        responded = True
+
     if not responded:
-        msg.body("I only know about famous quotes and cats, sorry!")
+        msg.body("I only know about famous quotes, cats and facts, sorry!")
     return str(resp)
 
 
