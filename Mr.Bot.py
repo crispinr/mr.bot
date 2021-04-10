@@ -29,7 +29,7 @@ def bot():
         responded = True
 
     if "cat fact" or "fact" in incoming_msg:
-        # To return a useless fact
+        # To return a fact about cats
         r = requests.get("https://meowfacts.herokuapp.com")
         if r.status_code == 200:
             data = r.json()
