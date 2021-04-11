@@ -51,7 +51,7 @@ def bot():
         responded = True
 
     if not responded:
-        msg.body("I only know about famous quotes, cats and facts, sorry!")
+        msg.body("I only know about famous quotes, jokes, cats and facts, sorry! No worries, my master is working out on developing me...")
     return str(resp)
 
 
