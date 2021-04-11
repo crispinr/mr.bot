@@ -28,7 +28,7 @@ def bot():
         msg.media("https://cataas.com/cat")
         responded = True
 
-    if "cat fact" or "fact" in incoming_msg:
+    if "fact" in incoming_msg:
         # To return a fact about cats
         r = requests.get("https://meowfacts.herokuapp.com")
         if r.status_code == 200:
@@ -46,7 +46,7 @@ def bot():
             data = r.json()
             joke = f'{data["setup"]} ({data["delivery"]})'
         else:
-            quote = "I could not retrieve a joke at this time, sorry!"
+            joke = "I could not retrieve a joke at this time, sorry!"
         msg.body(joke)
         responded = True
 
