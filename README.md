@@ -24,6 +24,8 @@ Joke – to reply with a random joke
 
 Cat – to reply with a random cat image
 
+Trump Saying - to reply with a random trump quote
+
 ### HOW TO USE?
 To connect to Mr.Bot through WhatsApp, just save this number in your smartphone (+1 415 523 8886)
 
