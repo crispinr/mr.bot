@@ -49,6 +49,17 @@ def bot():
             joke = "I could not retrieve a joke at this time, sorry!"
         msg.body(joke)
         responded = True
+        
+    if "trump saying" in incoming_msg:
+        # To return a trump saying
+        r = requests.get("https://api.whatdoestrumpthink.com/api/v1/quotes/random")
+        if r.status_code == 200:
+            data = r.json()
+            trump_saying = f'{data["message"]}'
+        else:
+            trump_saying = "I could not reterive a trump saying at this time, sorry!"
+        msg.body(trump_saying)
+        responded = True
 
     if not responded:
         msg.body("I only know about famous quotes, jokes, cats and facts, sorry! No worries, my master is working out on developing me...")
