@@ -12,7 +12,13 @@ def bot():
     msg = resp.message()
     responded = False
 
-    if "hi" or "hello" in incoming_msg:
+    if "command" in incoming_msg:
+        # To return with the command list
+        reply = "The commands are as follows,\n Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying.\n Thank you!"
+        msg.body(reply)
+        responded = True
+
+    if "hi" in incoming_msg:
         # To return a greeting msg
         reply = "Hello!"
         msg.body(reply)
@@ -27,6 +33,12 @@ def bot():
     if "fine" in incoming_msg:
         # To return a greeting msg
         reply = "Oh great!"
+        msg.body(reply)
+        responded = True
+
+    if "nic" in incoming_msg:
+        # To return a reply msg
+        reply = "Cool!"
         msg.body(reply)
         responded = True
     
@@ -44,13 +56,13 @@ def bot():
 
     if "who created you" in incoming_msg:
         # To return a info msg
-        reply = "I'm created by my master, Crispin!"
+        reply = "I'm a bot developed by my master, Crispin!"
         msg.body(reply)
         responded = True
     
-    if "thanks" or "thank you" in incoming_msg:
+    if "thanks" in incoming_msg:
         # To return a greeting msg
-        reply = "Cool!"
+        reply = "Welcome!"
         msg.body(reply)
         responded = True
 
@@ -65,12 +77,12 @@ def bot():
         msg.body(quote)
         responded = True
 
-    if "cat" in incoming_msg:
+    if "cat img" in incoming_msg:
         # To return a cat pics
         msg.media("https://cataas.com/cat")
         responded = True
 
-    if "fact" or "facts" in incoming_msg:
+    if "fact" in incoming_msg:
         # To return a fact about cats
         r = requests.get("https://meowfacts.herokuapp.com")
         if r.status_code == 200:
@@ -92,8 +104,8 @@ def bot():
         msg.body(joke)
         responded = True
 
-    if "trump saying" in incoming_msg:
-        # To return a trump saying
+    if "trump's saying" in incoming_msg:
+        # To return a trump's saying
         r = requests.get("https://api.whatdoestrumpthink.com/api/v1/quotes/random")
         if r.status_code == 200:
             data = r.json()
@@ -104,12 +116,8 @@ def bot():
         responded = True
     
     if not responded:
-        reply_1 = "I only respond to messages with the following commands, sorry!"
-        reply_2 = "hi, hello, how are you, fine, bye, thanks, who are you, who created you, quote, cat, fact, joke, trump saying"
-        reply_3 = "No worries, my master is working out on developing me..."
-        msg.body(reply_1)
-        msg.body(reply_2)
-        msg.body(reply_3)
+        reply = "Sorry! I only respond to messages with the following commands...\n\n****Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying****\n\nNo worries, my master is working on developing me to make me a super cool chat bot...\n\nThank you!"
+        msg.body(reply)
     return str(resp)
 
 
