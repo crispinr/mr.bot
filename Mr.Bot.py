@@ -13,7 +13,7 @@ def bot():
     responded = False
 
     if "hi" or "hello" in incoming_msg:
-        # To return a greeting
+        # To return a greeting msg
         reply = "Hello!"
         msg.body(reply)
         responded = True
