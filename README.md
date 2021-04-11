@@ -24,6 +24,7 @@ Joke – to reply with a random joke
 
 Cat – to reply with a random cat image
 
+### HOW TO USE?
 To connect to Mr.Bot through WhatsApp, just save this number in your smartphone (+1 415 523 8886)
 
 This is a Twilio WhatsApp Sandbox number, by which you can connect with Mr.Bot...
