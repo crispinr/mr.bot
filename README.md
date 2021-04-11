@@ -16,6 +16,10 @@ A WhatsApp bot that'll be a great friend of you!
 5) A Twilio account
 
 ### COMMANDS:
+
+#### GENERAL COMMANDS
+Hi, Hello, How are you, Fine, Bye, Thanks, Who are you, Who created you
+
 Quote – to reply with a random quote
 
 Fact – to reply with a random cat fact
