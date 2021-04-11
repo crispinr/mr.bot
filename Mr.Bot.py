@@ -39,6 +39,17 @@ def bot():
         msg.body(fact)
         responded = True
 
+    if "joke" in incoming_msg:
+        # To return a joke
+        r = requests.get("https://v2.jokeapi.dev/joke/Any")
+        if r.status_code == 200:
+            data = r.json()
+            joke = f'{data["setup"]} ({data["delivery"]})'
+        else:
+            quote = "I could not retrieve a joke at this time, sorry!"
+        msg.body(joke)
+        responded = True
+
     if not responded:
         msg.body("I only know about famous quotes, cats and facts, sorry!")
     return str(resp)
