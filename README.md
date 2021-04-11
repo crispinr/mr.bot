@@ -18,7 +18,9 @@ A WhatsApp bot that'll be a great friend of you!
 ### COMMANDS:
 
 #### GENERAL COMMANDS
-Hi, Hello, How are you, Fine, Bye, Thanks, Who are you, Who created you
+Hi, How are you, Fine, Bye, Thanks, Who are you, Who created you
+
+And some special commands like...
 
 Quote – to reply with a random quote
 
@@ -26,9 +28,9 @@ Fact – to reply with a random cat fact
 
 Joke – to reply with a random joke
 
-Cat – to reply with a random cat image
+Cat Img – to reply with a random cat image
 
-Trump Saying - to reply with a random trump quote
+Trump's Saying - to reply with a random trump quote
 
 ### HOW TO USE?
 To connect to Mr.Bot through WhatsApp, just save this number in your smartphone (+1 415 523 8886)
