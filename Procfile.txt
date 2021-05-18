@@ -1,1 +1,1 @@
-web: gunicorn Mr.Bot.py:app
+web: gunicorn Mr.Bot:app
