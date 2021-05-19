@@ -115,6 +115,17 @@ def bot():
         msg.body(trump_saying)
         responded = True
     
+    if "meme" in incoming_msg:
+        # To return a random meme
+        r = requests.get("https://meme-api.herokuapp.com/gimme")
+        if r.status_code == 200:
+            data = r.json()
+            meme = f'{data["url"]}'
+        else:
+            meme = "I could'nt reterive a meme at this time, sorry!"
+        msg.media(meme)
+        responded = True
+
     if not responded:
         reply = "Sorry! I only respond to messages with the following commands...\n\n****Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying****\n\nNo worries, my master is working on developing me to make me a super cool chat bot...\n\nThank you!"
         msg.body(reply)
