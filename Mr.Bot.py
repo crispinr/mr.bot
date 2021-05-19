@@ -126,6 +126,17 @@ def bot():
         msg.media(meme)
         responded = True
 
+    if "bored" in incoming_msg:
+        # To return an idea
+        r = requests.get("https://www.boredapi.com/api/activity")
+        if r.status_code == 200:
+            data = r.json()
+            idea = f'{data["activity"]}'
+        else:
+            idea = "I could'nt reterive an idea at this time, sorry!"
+        msg.body(idea)
+        responded = True
+
     if not responded:
         reply = "Sorry! I only respond to messages with the following commands...\n\n****Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying****\n\nNo worries, my master is working on developing me to make me a super cool chat bot...\n\nThank you!"
         msg.body(reply)
