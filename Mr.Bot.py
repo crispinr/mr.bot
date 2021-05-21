@@ -137,6 +137,11 @@ def bot():
         msg.body(idea)
         responded = True
 
+    if "trump" in incoming_msg:
+        # To return with the dumbest things Donald Trump has ever said
+        msg.media("https://www.tronalddump.io/random/meme")
+        responded = True
+
     if not responded:
         reply = "Sorry! I only respond to messages with the following commands...\n\n****Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying****\n\nNo worries, my master is working on developing me to make me a super cool chat bot...\n\nThank you!"
         msg.body(reply)
