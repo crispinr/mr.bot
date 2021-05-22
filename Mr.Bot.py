@@ -5,7 +5,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 app = Flask(__name__)
 
 
-@app.route("/bot", methods=["POST"])
+@app.route("/bot", methods = ["POST"])
 def bot():
     incoming_msg = request.values.get("Body", "").lower()
     resp = MessagingResponse()
@@ -142,14 +142,15 @@ def bot():
         msg.media("https://www.tronalddump.io/random/meme")
         responded = True
 
+    if "food img" in incoming_msg:
+        # To return a random delicious food pic
+        msg.media("https://source.unsplash.com/user/fryfamilyfoodco")
+        responded = True
+
     if not responded:
-        reply = "Sorry! I only respond to messages with the following commands...\n\n****Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying****\n\nNo worries, my master is working on developing me to make me a super cool chat bot...\n\nThank you!"
+        reply = "Sorry! I only respond to messages with the following commands...\n\n*Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying*\n\nNo worries, my master is working on developing me to make me a super cool chat bot...\n\nThank you!"
         msg.body(reply)
     return str(resp)
 
-@app.route("/")
-def hello():
-    return "Hello World!"
-
 if __name__ == "__main__":
-    app.run(host="localhost", port=5000, debug=True)
+    app.run()
