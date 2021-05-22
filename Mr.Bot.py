@@ -152,5 +152,9 @@ def bot():
         msg.body(reply)
     return str(resp)
 
+@app.route('/')
+def index():
+    return "<h1>Welcome to our server !!</h1>"
+
 if __name__ == "__main__":
-    app.run()
+    app.run(threaded=True, port=5000)
