@@ -14,7 +14,7 @@ def bot():
 
     if "command" in incoming_msg:
         # To return with the command list
-        reply = "The commands are as follows,\n Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying.\n Thank you!"
+        reply = "The commands are as follows,\n *Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying.*\n Thank you!"
         msg.body(reply)
         responded = True
 
@@ -50,7 +50,7 @@ def bot():
     
     if "who are you" in incoming_msg:
         # To return a info msg
-        reply = "I'm Mr.Bot, a WhatsApp chat bot!"
+        reply = "I'm Mr.Bot, a WhatsApp chat bot! 😎"
         msg.body(reply)
         responded = True
 
@@ -62,7 +62,7 @@ def bot():
     
     if "thanks" in incoming_msg:
         # To return a greeting msg
-        reply = "Welcome!"
+        reply = "Welcome! 😊"
         msg.body(reply)
         responded = True
 
@@ -148,7 +148,7 @@ def bot():
         responded = True
 
     if not responded:
-        reply = "Sorry! I only respond to messages with the following commands...\n\n*Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying*\n\nNo worries, my master is working on developing me to make me a super cool chat bot...\n\nThank you!"
+        reply = "Sorry! I only respond to messages with the following commands...\n\n*Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying*\n\nNo worries, my master is working on developing me to make me a super cool chat bot... 😉\n\nThank you!"
         msg.body(reply)
     return str(resp)
 
