@@ -1,6 +1,7 @@
 from flask import Flask, request
 import requests
 from twilio.twiml.messaging_response import MessagingResponse
+from werkzeug.datastructures import MIMEAccept
 
 app = Flask(__name__)
 
@@ -146,6 +147,15 @@ def bot():
         # To return a random delicious food pic
         msg.media("https://source.unsplash.com/user/fryfamilyfoodco")
         responded = True
+
+    if "dog img" in incoming_msg:
+        # To return a random dog img
+        r = requests.get("https://dog.ceo/api/breeds/image/random")
+        if r.status_code == 200:
+            data = r.json()
+            dog_img = f'{data["message"]}'
+            msg.media(dog_img)
+            responded = True
 
     if not responded:
         reply = "Sorry! I only respond to messages with the following commands...\n\n*Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying*\n\nNo worries, my master is working on developing me to make me a super cool chat bot... 😉\n\nThank you!"
