@@ -1,12 +1,11 @@
 from flask import Flask, request
 import requests
 from twilio.twiml.messaging_response import MessagingResponse
-from werkzeug.datastructures import MIMEAccept
 
 app = Flask(__name__)
 
 
-@app.route("/bot", methods = ["POST"])
+@app.route("/bot", methods=["POST"])
 def bot():
     incoming_msg = request.values.get("Body", "").lower()
     resp = MessagingResponse()
@@ -15,7 +14,8 @@ def bot():
 
     if "command" in incoming_msg:
         # To return with the command list
-        reply = "The commands are as follows,\n *Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying.*\n Thank you!"
+        reply = "The commands are as follows,\n *Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, " \
+                "Who created you, Quote, Cat, Fact, Joke, Trump's Saying.*\n Thank you!"
         msg.body(reply)
         responded = True
 
@@ -158,13 +158,17 @@ def bot():
             responded = True
 
     if not responded:
-        reply = "Sorry! I only respond to messages with the following commands...\n\n*Hi, How are you, Fine, Nice, Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying*\n\nNo worries, my master is working on developing me to make me a super cool chat bot... 😉\n\nThank you!"
+        reply = "Sorry! I only respond to messages with the following commands...\n\n*Hi, How are you, Fine, Nice, " \
+                "Bye, Thanks, Who are you, Who created you, Quote, Cat, Fact, Joke, Trump's Saying*\n\nNo worries, " \
+                "my master is working on developing me to make me a super cool chat bot... 😉\n\nThank you!"
         msg.body(reply)
     return str(resp)
+
 
 @app.route('/')
 def index():
     return "<h1>Welcome to my server!!</h1>"
+
 
 if __name__ == "__main__":
     app.run()
